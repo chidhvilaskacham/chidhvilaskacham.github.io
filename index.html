@@ -858,8 +858,8 @@
                     
                     // Filter out forked repositories and get the most interesting ones
                     const filteredRepos = repos
-                        .filter(repo => !repo.fork && repo.description) // Exclude forks and repos without descriptions
-                        .slice(0, 6); // Show top 6 repositories
+                        .filter(repo => !repo.fork && repo.description)
+                        .slice(0, 6);
                     
                     if (filteredRepos.length === 0) {
                         // If no non-forked repos with descriptions, show all repos
