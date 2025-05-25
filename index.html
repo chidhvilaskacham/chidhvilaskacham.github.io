@@ -663,7 +663,7 @@
                     <div class="info-card" onclick="toggleSection(this)">
                         <h3>About Me</h3>
                         <div class="card-content">
-                            <p>DevOps Engineer with hands-on experience in cloud infrastructure, automation, and CI/CD. Specialized in implementing and optimizing DevOps practices.</p>
+                            <p>DevOps Engineer with hands-on experience in cloud infrastructure and automation.</p>
                             <a href="CHIDHVILAS KACHAM_DevOps Engineer.pdf" class="btn" target="_blank">Download Resume</a>
                         </div>
                     </div>
@@ -1000,9 +1000,11 @@
             }
         });
 
-        function toggleSection(header) {
-            const content = header.nextElementSibling;
-            content.classList.toggle('open');
+        function toggleSection(card) {
+            const content = card.querySelector('.card-content');
+            if (content) {
+                content.classList.toggle('open');
+            }
         }
     </script>
 </body>
