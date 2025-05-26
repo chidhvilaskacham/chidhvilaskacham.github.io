@@ -60,7 +60,7 @@
 
         /* Header */
         header {
-            position: fixed;
+            position: sticky;
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
@@ -68,6 +68,7 @@
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
             transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         [data-theme="dark"] header {
@@ -103,10 +104,13 @@
             font-weight: 500;
             position: relative;
             transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
 
         .nav-links a:hover {
             color: var(--primary-color);
+            background: rgba(99, 102, 241, 0.1);
         }
 
         .nav-links a::after {
@@ -591,6 +595,7 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             color: var(--text-primary);
+            cursor: pointer;
         }
 
         [data-theme="dark"] .info-card {
@@ -602,17 +607,24 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .info-card h3 {
+        .clickable-header {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--primary-color);
+            cursor: pointer;
         }
 
         .card-content {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .card-content.open {
+            max-height: 500px; /* Adjust based on content size */
+            opacity: 1;
         }
 
         /* Project Cards Grid */
@@ -795,7 +807,7 @@
                 <!-- Info Grid -->
                 <div class="info-grid">
                     <div class="info-card" onclick="toggleSection(this)">
-                        <h3>About Me</h3>
+                        <h3 class="clickable-header">About Me</h3>
                         <div class="card-content">
                             <p>DevOps Engineer with hands-on experience in cloud infrastructure and automation.</p>
                             <a href="CHIDHVILAS KACHAM_DevOps Engineer.pdf" class="btn" target="_blank">Download Resume</a>
@@ -803,7 +815,7 @@
                     </div>
                     
                     <div class="info-card" onclick="toggleSection(this)">
-                        <h3>Skills</h3>
+                        <h3 class="clickable-header">Skills</h3>
                         <div class="card-content">
                             <ul class="skills-list">
                                 <li>AWS & Azure Cloud</li>
@@ -817,7 +829,7 @@
                     </div>
 
                     <div class="info-card" onclick="toggleSection(this)">
-                        <h3>Experience</h3>
+                        <h3 class="clickable-header">Experience</h3>
                         <div class="card-content">
                             <div class="timeline">
                                 <div class="timeline-item">
@@ -835,7 +847,7 @@
                     </div>
 
                     <div class="info-card" onclick="toggleSection(this)">
-                        <h3>Education</h3>
+                        <h3 class="clickable-header">Education</h3>
                         <div class="card-content">
                             <h4>B.Tech in Computer Science and Engineering</h4>
                             <p class="institution">Lovely Professional University</p>
