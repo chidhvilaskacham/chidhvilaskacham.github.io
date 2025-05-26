@@ -404,7 +404,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--text-primary);
+            color: var(--primary-color);
         }
 
         .contact-info p {
@@ -415,6 +415,7 @@
 
         .social-links {
             display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
         }
 
@@ -422,14 +423,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            padding: 0.8rem 1.5rem;
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 8px;
             text-decoration: none;
             color: var(--text-secondary);
+            font-weight: 500;
             transition: all 0.3s ease;
+        }
+
+        .social-link span {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
         }
 
         .social-link:hover {
@@ -438,16 +444,55 @@
             transform: translateY(-3px);
         }
 
-        /* Footer */
-        footer {
-            padding: 2rem 0;
+        /* Code Window Styling */
+        .code-window {
             background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
         }
 
-        footer p {
+        .window-header {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .window-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .dot-red {
+            background: #ff5f56;
+        }
+
+        .dot-yellow {
+            background: #ffbd2e;
+        }
+
+        .dot-green {
+            background: #27c93f;
+        }
+
+        .code-content {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
             color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        [data-theme="dark"] .code-content {
+            background: rgba(31, 41, 55, 0.9);
+            color: var(--text-primary);
         }
 
         /* Animations */
@@ -762,6 +807,16 @@
             .info-grid {
                 grid-template-columns: 1fr;
             }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .social-link {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -879,19 +934,21 @@
                 <div class="contact-content">
                     <div class="contact-info">
                         <h2>Let's Connect</h2>
-                        <p>I'm always interested in collaborating on exciting projects and connecting with fellow developers. Feel free to reach out!</p>
+                        <p>
+                            I'm always interested in collaborating on exciting projects and connecting with fellow developers. Feel free to reach out!
+                        </p>
                         <div class="social-links">
                             <a href="https://github.com/chidhvilaskacham" class="social-link" target="_blank" title="GitHub">
-                                <span>📂</span>
+                                <span>🐙</span> GitHub
                             </a>
                             <a href="mailto:kachamchidhvilas@gmail.com" class="social-link" title="Email">
-                                <span>✉️</span>
+                                <span>✉️</span> Email
                             </a>
                             <a href="https://linkedin.com/in/chidhvilas-kacham" class="social-link" target="_blank" title="LinkedIn">
-                                <span>💼</span>
+                                <span>💼</span> LinkedIn
                             </a>
                             <a href="https://twitter.com/kacham_k" class="social-link" target="_blank" title="Twitter">
-                                <span>🐦</span>
+                                <span>🐦</span> Twitter
                             </a>
                         </div>
                     </div>
@@ -903,28 +960,16 @@
                                 <div class="window-dot dot-green"></div>
                             </div>
                             <div class="code-content">
-                                <div class="code-line">
-                                    <span class="keyword">function</span> <span>connectWithMe</span>() {
-                                </div>
-                                <div class="code-line">
-                                    &nbsp;&nbsp;<span class="keyword">return</span> {
-                                </div>
-                                <div class="code-line">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>github</span>: <span class="string">"chidhvilas-kacham"</span>,
-                                </div>
-                                <div class="code-line">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>availability</span>: <span class="string">"open to opportunities"</span>,
-                                </div>
-                                <div class="code-line">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span>response_time</span>: <span class="string">"within 24 hours"</span>
-                                </div>
-                                <div class="code-line">
-                                    &nbsp;&nbsp;}
-                                </div>
-                                <div class="code-line">}</div>
-                                <div class="code-line">
-                                    <span class="comment">// Let's build something amazing together! 🤝</span>
-                                </div>
+                                <pre>
+function connectWithMe() {
+    return {
+        github: "chidhvilaskacham",
+        availability: "open to opportunities",
+        response_time: "within 24 hours"
+    };
+}
+// Let's build something amazing together! 🤝
+                                </pre>
                             </div>
                         </div>
                     </div>
