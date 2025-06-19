@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chidhvilas Kacham - Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Chidhvilas Kacham, showcasing expertise in DevOps, CI/CD, IaC, and containerized microservices.">
+    <meta name="keywords" content="DevOps, CI/CD, IaC, Microservices, Portfolio">
+    <meta name="author" content="Chidhvilas Kacham">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="Chidhvilas Kacham - DevOps Engineer Portfolio">
+    <meta property="og:description" content="Explore the portfolio of Chidhvilas Kacham, a DevOps Engineer specializing in CI/CD, IaC, and containerized microservices.">
+    <meta property="og:image" content="https://example.com/profile-image.jpg">
+    <meta property="og:url" content="https://chidhvilaskacham.github.io">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chidhvilas Kacham - DevOps Engineer Portfolio">
+    <meta name="twitter:description" content="Explore the portfolio of Chidhvilas Kacham, a DevOps Engineer specializing in CI/CD, IaC, and containerized microservices.">
+    <meta name="twitter:image" content="https://example.com/profile-image.jpg">
+
     <style>
         * {
             margin: 0;
@@ -799,7 +814,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <button class="theme-toggle" onclick="toggleTheme()">
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle between light and dark theme">
                         <span id="theme-icon">🌙</span>
                     </button>
                 </li>
@@ -814,7 +829,7 @@
                 <div class="profile-header">
                     <div class="profile-image-container">
                         <div class="profile-image" id="profile-display">
-                            <img src="IMG_0176.JPG" alt="Profile" />
+                            <img src="IMG_0176.JPG" alt="Profile picture of Chidhvilas Kacham" loading="lazy">
                         </div>
                     </div>
                     <div class="profile-info">
@@ -930,13 +945,13 @@
                             I'm always interested in collaborating on exciting projects and connecting with fellow developers. Feel free to reach out!
                         </p>
                         <div class="social-links">
-                            <a href="https://github.com/chidhvilaskacham" class="social-link" target="_blank" title="GitHub">
+                            <a href="https://github.com/chidhvilaskacham" class="social-link" target="_blank" title="GitHub" aria-label="Visit my GitHub profile">
                                 <span>🐙</span> GitHub
                             </a>
                             <a href="mailto:kachamchidhvilas@gmail.com" class="social-link" title="Email">
                                 <span>✉️</span> Email
                             </a>
-                            <a href="https://linkedin.com/in/chidhvilas-kacham" class="social-link" target="_blank" title="LinkedIn">
+                            <a href="https://linkedin.com/in/chidhvilaskacham" class="social-link" target="_blank" title="LinkedIn" aria-label="Visit my LinkedIn profile">
                                 <span>💼</span> LinkedIn
                             </a>
                             <a href="https://twitter.com/kacham_k" class="social-link" target="_blank" title="Twitter">
@@ -966,6 +981,14 @@ function connectWithMe() {
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="about-me" id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>Welcome to my portfolio! I am a DevOps Engineer passionate about building scalable and efficient systems.</p>
             </div>
         </section>
     </main>
@@ -1193,6 +1216,15 @@ function connectWithMe() {
         function redirectToRepo(repoUrl) {
             window.open(repoUrl, '_blank');
         }
+
+        function monitorPerformance() {
+            if (window.performance) {
+                const perfEntries = performance.getEntriesByType('navigation');
+                console.log('Performance Metrics:', perfEntries);
+            }
+        }
+
+        window.onload = monitorPerformance;
     </script>
 </body>
 </html>
