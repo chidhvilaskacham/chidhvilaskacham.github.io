@@ -63,8 +63,8 @@
         [data-theme="dark"] body {
             background: 
                 linear-gradient(
-                    rgba(17, 24, 39, 0.95), 
-                    rgba(17, 24, 39, 0.95)
+                    rgba(17, 24, 39, 0.98), 
+                    rgba(17, 24, 39, 0.98)
                 ),
                 url('https://images.unsplash.com/photo-1667372393371-3d8c6c4d3a84?auto=format&fit=crop&q=80') center/cover fixed;
         }
@@ -271,7 +271,7 @@
         }
 
         [data-theme="dark"] .hero-details {
-            background: rgba(31, 41, 55, 0.9);
+            background: rgba(31, 41, 55, 0.98);
             color: var(--text-primary);
         }
 
@@ -401,12 +401,12 @@
 
         [data-theme="dark"] .contact {
             background: 
-                linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(31, 41, 55, 0.9) 100%),
+                linear-gradient(135deg, rgba(17, 24, 39, 0.98) 0%, rgba(31, 41, 55, 0.98) 100%),
                 url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2074&auto=format&fit=crop') center/cover;
         }
 
         [data-theme="dark"] .contact::before {
-            background: rgba(17, 24, 39, 0.85);
+            background: rgba(17, 24, 39, 0.92);
         }
 
         .contact-content {
@@ -666,7 +666,7 @@
         }
 
         [data-theme="dark"] .info-card {
-            background: rgba(31, 41, 55, 0.9); /* Darker background */
+            background: rgba(31, 41, 55, 0.98); /* Darker background */
             color: var(--text-primary); /* Light text */
         }
 
@@ -717,7 +717,7 @@
         }
 
         [data-theme="dark"] .project-card {
-            background: rgba(31, 41, 55, 0.9); /* Darker background */
+            background: rgba(31, 41, 55, 0.98); /* Darker background */
             color: var(--text-primary); /* Light text */
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5); /* Subtle shadow */
         }
@@ -777,30 +777,78 @@
             }
 
             .profile-image {
-                width: 250px;
-                height: 250px;
+                width: 200px;
+                height: 200px;
             }
 
             .profile-name {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .profile-title {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
 
             .info-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
 
             .social-link {
                 width: 100%;
                 justify-content: center;
+                font-size: 0.9rem;
+            }
+
+            .project-card {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .project-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Improved dark/light mode contrast and transitions for mobile */
+        [data-theme="dark"] body {
+            background: linear-gradient(rgba(17,24,39,0.98),rgba(17,24,39,0.98)), url('https://images.unsplash.com/photo-1667372393371-3d8c6c4d3a84?auto=format&fit=crop&q=80') center/cover fixed;
+        }
+
+        [data-theme="dark"] .profile-header,
+        [data-theme="dark"] .info-card,
+        [data-theme="dark"] .project-card,
+        [data-theme="dark"] .hero-details {
+            background: rgba(31,41,55,0.98);
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .contact {
+            background: linear-gradient(135deg, rgba(17,24,39,0.98) 0%, rgba(31,41,55,0.98) 100%), url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2074&auto=format&fit=crop') center/cover;
+        }
+
+        [data-theme="dark"] .contact::before {
+            background: rgba(17,24,39,0.92);
+        }
+
+        body, .info-card, .project-card, .profile-header, .hero-details, .contact {
+            transition: background 0.3s, color 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            [data-theme="dark"] .profile-header,
+            [data-theme="dark"] .info-card,
+            [data-theme="dark"] .project-card,
+            [data-theme="dark"] .hero-details {
+                background: rgba(31,41,55,0.98);
+            }
+            [data-theme="dark"] .contact {
+                background: linear-gradient(135deg, rgba(17,24,39,0.98) 0%, rgba(31,41,55,0.98) 100%), url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2074&auto=format&fit=crop') center/cover;
             }
         }
     </style>
