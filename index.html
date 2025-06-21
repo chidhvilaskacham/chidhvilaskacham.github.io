@@ -23,7 +23,140 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box;            /* Responsive Navigation */
+            header {
+              background: rgba(255,255,255,0.95);
+              border-bottom: 1px solid var(--border-color);
+              position: sticky;
+              top: 0;
+              z-index: 1000;
+            }
+            [data-theme="dark"] header {
+              background: rgba(17,24,39,0.95);
+            }
+            .navbar {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 1rem 2rem;
+            }
+            .logo {
+              font-size: 1.5rem;
+              font-weight: 700;
+              background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+            }
+            .nav-links {
+              display: flex;
+              gap: 2rem;
+              list-style: none;
+              align-items: center;
+            }
+            .nav-links a {
+              text-decoration: none;
+              color: var(--text-secondary);
+              font-weight: 500;
+              padding: 0.5rem 1rem;
+              border-radius: 8px;
+              transition: background 0.2s, color 0.2s;
+            }
+            .nav-links a:hover {
+              color: var(--primary-color);
+              background: rgba(99,102,241,0.1);
+            }
+            .theme-toggle {
+              background: none;
+              border: 2px solid var(--border-color);
+              border-radius: 50%;
+              width: 40px;
+              height: 40px;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: border-color 0.3s, transform 0.3s;
+            }
+            .theme-toggle:hover {
+              border-color: var(--primary-color);
+              transform: scale(1.1);
+            }
+            
+            /* Hamburger for mobile */
+            .hamburger {
+              display: none;
+              flex-direction: column;
+              cursor: pointer;
+              gap: 5px;
+            }
+            .hamburger span {
+              width: 25px;
+              height: 3px;
+              background: var(--primary-color);
+              border-radius: 2px;
+              transition: all 0.3s;
+            }
+            
+            /* Hide nav-links on mobile, show hamburger */
+            @media (max-width: 900px) {
+              .navbar {
+                padding: 1rem;
+              }
+              .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: var(--bg-primary);
+                flex-direction: column;
+                width: 200px;
+                gap: 1rem;
+                padding: 1.5rem 1rem;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+                display: none;
+                z-index: 1001;
+              }
+              .nav-links.open {
+                display: flex;
+              }
+              .hamburger {
+                display: flex;
+              }
+            }
+            
+            /* Hero Section Responsive */
+            .hero__container {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 2rem;
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 3rem 2rem 2rem 2rem;
+            }
+            .hero__img {
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
+              object-fit: cover;
+              border: 5px solid var(--primary-color);
+              box-shadow: 0 4px 24px rgba(99,102,241,0.08);
+            }
+            .hero__intro {
+              flex: 1;
+            }
+            @media (max-width: 900px) {
+              .hero__container {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1rem;
+              }
+              .hero__img {
+                margin-bottom: 1rem;
+              }
+            }
         }
 
         :root {
@@ -851,15 +984,64 @@
                 background: linear-gradient(135deg, rgba(17,24,39,0.98) 0%, rgba(31,41,55,0.98) 100%), url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2074&auto=format&fit=crop') center/cover;
             }
         }
+
+        a:focus, button:focus, input:focus, textarea:focus {
+          outline: 2px solid var(--primary-color);
+          outline-offset: 2px;
+        }
+
+        .hero__container {
+          position: relative;
+          z-index: 2;
+          background: rgba(255,255,255,0.85); /* Light background for contrast */
+          border-radius: 24px;
+          box-shadow: 0 8px 32px rgba(99,102,241,0.07);
+          padding: 2rem 2rem;
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          max-width: 900px;
+          margin: 4rem auto 0 auto;
+        }
+
+        .hero__title, .hero__subtitle, .hero__desc {
+          color: #1f2937 !important; /* Strong dark text for readability */
+        }
+
+        [data-theme="dark"] .hero__container {
+          background: rgba(31,41,55,0.92);
+        }
+
+        [data-theme="dark"] .hero__title,
+        [data-theme="dark"] .hero__subtitle,
+        [data-theme="dark"] .hero__desc {
+          color: #e5e7eb !important;
+        }
+
+        .btn--primary {
+          background: var(--primary-color);
+          color: #fff !important;
+          padding: 0.75rem 1.5rem;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: background 0.2s;
+          display: inline-block;
+          margin-top: 1rem;
+        }
+        .btn--primary:hover {
+          background: var(--secondary-color);
+        }
     </style>
 </head>
 <body data-theme="light">
   <!-- Skip to main content for accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <header class="header" role="banner">
-    <nav class="header__nav" aria-label="Main navigation">
-      <a href="#home" class="header__logo" aria-label="Go to homepage">CK</a>
-      <ul class="header__nav-list">
+  <header>
+  <div class="navbar">
+    <span class="logo" aria-label="Go to homepage">CK</span>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -868,13 +1050,19 @@
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
-          <button class="header__theme-toggle" id="theme-toggle-btn" aria-label="Toggle dark/light mode" aria-pressed="false">
+          <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle dark/light mode" aria-pressed="false">
             <span id="theme-icon">🌙</span>
           </button>
         </li>
       </ul>
+      <div class="hamburger" id="hamburger" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
-  </header>
+  </div>
+</header>
   <main id="main-content" tabindex="-1">
     <!-- Hero Section -->
     <section class="hero" id="home" aria-label="Hero">
@@ -989,5 +1177,36 @@
     </div>
   </footer>
   <script src="main.js" defer></script>
+  <script>
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+  });
+  // Close nav on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if(window.innerWidth < 900) {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Chidhvilas Kacham",
+  "jobTitle": "DevOps Engineer",
+  "url": "https://chidhvilaskacham.github.io",
+  "sameAs": [
+    "https://github.com/chidhvilaskacham",
+    "https://linkedin.com/in/chidhvilas-kacham"
+  ]
+}
+</script>
 </body>
 </html>
